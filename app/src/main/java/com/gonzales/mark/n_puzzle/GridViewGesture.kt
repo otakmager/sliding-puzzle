@@ -199,7 +199,9 @@ class GridViewGesture : GridView {
      * an <code>ACTION_CANCEL</code> event, and no further messages will be delivered here.
      */
     override fun onInterceptTouchEvent(ev: MotionEvent?): Boolean {
-        gestureDetector.onTouchEvent(ev)
+        if (ev != null) {
+            gestureDetector.onTouchEvent(ev)
+        }
 
         when (ev!!.actionMasked) {
             MotionEvent.ACTION_DOWN -> {
